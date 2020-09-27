@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setMessage(budgett.getCategory());
                 //builder.setMessage(budgett.getAmount());
 
-
+dgsdsssssssssssdddd
                 builder.setPositiveButton("Finished", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
