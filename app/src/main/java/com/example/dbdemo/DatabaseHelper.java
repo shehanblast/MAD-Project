@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CATE = "category";
     private static final String AMOUNT = "amount";
     private static final String STARTED = "started";
-
+    private static final String FINISHED = "finished";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
