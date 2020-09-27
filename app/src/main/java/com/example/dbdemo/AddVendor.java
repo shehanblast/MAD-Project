@@ -1,4 +1,4 @@
 package com.example.dbdemo;
 
-public class AddVendor {
+public class AddVendor {vhhchcg
 }
