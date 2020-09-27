@@ -10,13 +10,22 @@ import android.widget.Button;
 public class EventPlanner extends AppCompatActivity {
 
     Button bttn;
+    Button btt1;
+    Button btt2;
+    Button btt3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_planner);
         bttn = findViewById(R.id.btn6);
+        btt1 = findViewById(R.id.btn1);
+        btt2 = findViewById(R.id.btn5);
+        btt3 = findViewById(R.id.btn7);
+
     }
+
+
 
     public void onResume() {
 
@@ -25,6 +34,14 @@ public class EventPlanner extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EventPlanner.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EventPlanner.this,DualnMain.class);
                 startActivity(intent);
             }
         });

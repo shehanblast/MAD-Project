@@ -47,7 +47,7 @@ public class EditTask extends AppCompatActivity {
 
                 Task task = new Task(Integer.parseInt(id),titleText,desText,updateData,0);
                 int state = dbHandler.UpdateTask(task);
-                startActivity(new Intent(context,MainActivity.class));
+                startActivity(new Intent(context,DualnMain.class));
             }
         });
     }

@@ -40,7 +40,7 @@ public class AddTask extends AppCompatActivity {
                 Task task = new Task(userTital,userDece,started,0);
                 dbHandler.addTask(task);
 
-                startActivity(new Intent(context,MainActivity.class));
+                startActivity(new Intent(context,DualnMain.class));
             }
         });
     }

@@ -84,6 +84,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+/*
+    public void budgetClick(View view){
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,addBudget.class);
+                startActivity(intent);
+            }
+        });
+    }*/
 
     public void onResume() {
 

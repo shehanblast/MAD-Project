@@ -65,7 +65,7 @@ public class DualnMain extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         task.setFinished(System.currentTimeMillis());
                         dbHandler.UpdateTask(task);
-                        startActivity(new Intent(context,MainActivity.class));
+                        startActivity(new Intent(context,DualnMain.class));
                     }
                 });
 
@@ -83,7 +83,7 @@ public class DualnMain extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dbHandler.deleteTask(task.getId());
-                        startActivity(new Intent(context,MainActivity.class));
+                        startActivity(new Intent(context,DualnMain.class));
                     }
                 });
 
