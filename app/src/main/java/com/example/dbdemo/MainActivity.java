@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         count = findViewById(R.id.todocount);
         budgets = new ArrayList<>();
 
-        budgets = databaseHelper.getAllBudgets();
+        budgets = databaseHelper.getAllBudgets();aaaa
 
         BudgetAdapter budgetAdapter = new BudgetAdapter(context,R.layout.single_budget,budgets);
         listView.setAdapter(budgetAdapter);
