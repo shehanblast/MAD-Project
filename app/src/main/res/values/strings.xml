@@ -13,4 +13,5 @@
     <string name="addtaskdetail">Task Details</string>
     <string name="addpage">ADD NEW TASK</string>
     <string name="editpage">Edit TASK</string>
+    <string name="AddGuEst">Add A Guest</string>
 </resources>

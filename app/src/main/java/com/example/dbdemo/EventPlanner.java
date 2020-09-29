@@ -45,5 +45,12 @@ public class EventPlanner extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EventPlanner.this,DulshaniMain.class);
+                startActivity(intent);
+            }
+        });
     }
 }
