@@ -31,10 +31,11 @@
 
     <Button
         android:id="@+id/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="47dp"
         android:layout_marginBottom="36dp"
-        android:text="Button"
+        android:background="@color/colorAccent"
+        android:text="Add Budget"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.866"
