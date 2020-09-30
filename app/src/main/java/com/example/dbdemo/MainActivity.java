@@ -19,7 +19,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private int listView;
-    private Button add;
+    private int add;
     private TextView count;
     private DatabaseHelper databaseHelper;
     Context context;
