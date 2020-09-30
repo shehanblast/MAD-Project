@@ -18,7 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView listView;
+    private int listView;
     private Button add;
     private TextView count;
     private DatabaseHelper databaseHelper;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         int countBudget = databaseHelper.countBudget();
         count.setText("You have "+countBudget+" budgets");
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapzterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
