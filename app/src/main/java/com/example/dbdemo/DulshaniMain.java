@@ -83,7 +83,7 @@ public class DulshaniMain extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         guEst.setFinished(System.currentTimeMillis());
                         dbHandler.updateSingleGuEst(guEst);
-                        startActivity(new Intent(context,MainActivity.class));
+                        startActivity(new Intent(context,DulshaniMain.class));
                     }
                 });
                 builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
@@ -91,7 +91,7 @@ public class DulshaniMain extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dbHandler.deleteGuEst(guEst.getId());
                         showToastDelete();
-                        startActivity(new Intent(context,MainActivity.class));
+                        startActivity(new Intent(context,DulshaniMain.class));
 
                     }
                 });
@@ -181,5 +181,5 @@ public class DulshaniMain extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "You click Setting", Toast.LENGTH_SHORT).show();
         }
         return true;
-    }*/
+    }
 }

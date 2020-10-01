@@ -72,7 +72,7 @@ public class EditGuEst extends AppCompatActivity {
                 int state=dbHandler.updateSingleGuEst(guEst);
                 System.out.println(state);
                 showToast();
-                startActivity(new Intent(context,MainActivity.class));
+                startActivity(new Intent(context,DulshaniMain.class));
 
 
 
@@ -104,7 +104,7 @@ public class EditGuEst extends AppCompatActivity {
         toast.show();
 
     }
-/*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menuedit,menu);
@@ -124,5 +124,5 @@ public class EditGuEst extends AppCompatActivity {
 
         }
         return true;
-    }*/
+    }
 }

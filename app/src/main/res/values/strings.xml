@@ -14,4 +14,16 @@
     <string name="addpage">ADD NEW TASK</string>
     <string name="editpage">Edit TASK</string>
     <string name="AddGuEst">Add A Guest</string>
+    <string name="Msg1">Vendor Details</string>
+    <string name="Msg2">Name</string>
+    <string name="Msg3">Category</string>
+    <string name="Msg4">Note</string>
+    <string name="Msg5">Estimated Amount</string>
+    <string name="Msg6">Contact Details</string>
+    <string name="Msg7">Phone number</string>
+    <string name="Msg8">Email</string>
+    <string name="Msg9">Address</string>
+    <string name="Msg10">Payments</string>
+    <string name="Msg11">Paid Amount</string>
+    <string name="Msg12">Paid Date</string>
 </resources>

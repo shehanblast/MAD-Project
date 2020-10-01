@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditGuEst"></activity>
+        <activity android:name=".DeshaniMain"></activity>
+        <activity android:name=".EditVendor" />
+        <activity android:name=".AddVendor" />
+        <activity android:name=".EditGuEst" />
         <activity android:name=".AddGuEst" />
         <activity android:name=".DulshaniMain" />
         <activity android:name=".EditTask" />

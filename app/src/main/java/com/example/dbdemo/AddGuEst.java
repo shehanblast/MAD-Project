@@ -55,7 +55,7 @@ public class AddGuEst extends AppCompatActivity {
                 dbHandler.addGuEst(guEst);
 
                 showToast();
-                startActivity(new Intent(context, MainActivity.class));
+                startActivity(new Intent(context, DulshaniMain.class));
 
             }
         });
@@ -84,7 +84,7 @@ public class AddGuEst extends AppCompatActivity {
         toast.setView(layout);
         toast.show();
 
-    }/*
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -105,5 +105,5 @@ public class AddGuEst extends AppCompatActivity {
 
         }
         return true;
-    }*/
+    }
 }
