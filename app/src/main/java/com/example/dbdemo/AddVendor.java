@@ -4,6 +4,6 @@ public class AddVendor {
 
 //added the validations
 
-    //added the validations to the contact details
+    //ADD THE EMAIL VALIDATION
 
 }
