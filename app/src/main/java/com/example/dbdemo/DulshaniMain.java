@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,8 +25,6 @@ import androidx.appcompat.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.os.Bundle;
-
 public class DulshaniMain extends AppCompatActivity {
 
     private Button add;
@@ -41,11 +38,11 @@ public class DulshaniMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dulshani_main);
         context=this;
         dbHandler =new DulshaniDbHandler(context);
 
-        add=findViewById(R.id.add);
+        add=findViewById(R.id.btn22);
         guestList=findViewById(R.id.guestList);
         guestcount=findViewById(R.id.guestcount);
         //context=this;

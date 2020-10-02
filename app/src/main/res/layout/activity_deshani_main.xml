@@ -33,7 +33,7 @@
         android:layout_height="491dp"
         android:layout_marginTop="56dp"
         android:layout_marginBottom="670dp"
-        app:layout_constraintBottom_toTopOf="@+id/add"
+        app:layout_constraintBottom_toTopOf="@+id/btn22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
 

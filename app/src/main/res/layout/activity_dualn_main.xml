@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginBottom="670dp"
-        app:layout_constraintBottom_toTopOf="@+id/add"
+        app:layout_constraintBottom_toTopOf="@+id/btn22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,11 +27,11 @@
         android:text="Your have task Today"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/add"
+        app:layout_constraintEnd_toStartOf="@+id/btn22"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/add"
+        android:id="@+id/btn22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"

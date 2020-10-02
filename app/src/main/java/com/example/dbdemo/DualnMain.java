@@ -31,7 +31,7 @@ public class DualnMain extends AppCompatActivity {
         setContentView(R.layout.activity_dualn_main);
 
         dbHandler = new DbHandler(this);
-        add = findViewById(R.id.add);
+        add = findViewById(R.id.btn22);
         listView = findViewById(R.id.tasklist);
         count = findViewById(R.id.taskcount);
         context = this;

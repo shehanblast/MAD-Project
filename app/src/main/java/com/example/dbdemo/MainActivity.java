@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         context = this;
 
         databaseHelper = new DatabaseHelper(context);
-        add = findViewById(R.id.add);
+        add = findViewById(R.id.btn22);
         listView = findViewById(R.id.todoList);
         count = findViewById(R.id.todocount);
         budgets = new ArrayList<>();

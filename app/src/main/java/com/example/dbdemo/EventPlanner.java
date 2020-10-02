@@ -34,6 +34,8 @@ public class EventPlanner extends AppCompatActivity {
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
+    TextView txt;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +45,17 @@ public class EventPlanner extends AppCompatActivity {
         btt1 = findViewById(R.id.btn1);
         btt2 = findViewById(R.id.btn5);
         btt3 = findViewById(R.id.btn7);
+        txt = findViewById(R.id.textView6);
 
         mEditTextInput = findViewById(R.id.edit_text_input);
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
         mButtonSet = findViewById(R.id.button_set);
         mButtonStartPause = findViewById(R.id.button_start_pause);
         mButtonReset = findViewById(R.id.button_reset);
+
+        Intent intent = getIntent();
+        name = intent.getStringExtra("n1");
+        txt.setText(name);
 
         mButtonSet.setOnClickListener(new View.OnClickListener() {
             @Override

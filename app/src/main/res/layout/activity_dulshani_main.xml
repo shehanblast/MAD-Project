@@ -24,7 +24,7 @@
         android:layout_marginTop="70dp"
         android:layout_height="450dp"
         android:layout_marginBottom="670dp"
-        app:layout_constraintBottom_toTopOf="@+id/add"
+        app:layout_constraintBottom_toTopOf="@+id/btn22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -48,7 +48,7 @@
 
 
     <Button
-        android:id="@+id/add"
+        android:id="@+id/btn22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
