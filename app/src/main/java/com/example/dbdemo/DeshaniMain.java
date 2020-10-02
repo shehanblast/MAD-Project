@@ -92,15 +92,16 @@ public class DeshaniMain extends AppCompatActivity {
                 builder.setPositiveButton("Paid", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        vendor.setFinished(System.currentTimeMillis());
                         dbHandler.updateSingleVendor(vendor);
-                        startActivity(new Intent(context,MainActivity.class));
+                        startActivity(new Intent(context,DeshaniMain.class));
                     }
                 });
                 builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dbHandler.deleteVendor(vendor.getId());
-                        startActivity(new Intent(context,MainActivity.class));
+                        startActivity(new Intent(context,DeshaniMain.class));
 
                     }
                 });

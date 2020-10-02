@@ -17,12 +17,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DeshaniMain" />
-        <activity android:name=".EditVendor" />
-        <activity android:name=".AddVendor" />
-        <activity android:name=".EditGuEst" />
-        <activity android:name=".AddGuEst" />
-        <activity android:name=".DulshaniMain" />
+        <activity android:name=".DeshaniMain"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".EditVendor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".AddVendor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".EditGuEst"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".AddGuEst"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".DulshaniMain"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".EditTask" />
         <activity android:name=".AddTask" />
         <activity android:name=".DualnMain" />

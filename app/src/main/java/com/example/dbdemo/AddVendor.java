@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.os.Bundle;
@@ -27,6 +30,8 @@ public class AddVendor extends AppCompatActivity {
     private Button add;
     private DeshaniDbHandler dbHandler;
     private Context context;
+
+    AwesomeValidation awesomeValidation;
 
 
     @Override
@@ -65,10 +70,36 @@ public class AddVendor extends AppCompatActivity {
 
         dbHandler = new DeshaniDbHandler(context);
 
+        //initialize validation style
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        //add validation for vendor name
+        awesomeValidation.addValidation(this,R.id.editTextTextPersonName3,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_name);
+        //add validation for category
+        awesomeValidation.addValidation(this,R.id.editTextTextPersonName2,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_category);
+        //add validation for note
+        awesomeValidation.addValidation(this,R.id.editTextTextPersonName,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_note);
+        //add validation or estimated amount
+        awesomeValidation.addValidation(this,R.id.editTextTextPersonName6,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_amount);
+        // add validation for mobile number
+        awesomeValidation.addValidation(this,R.id.editTextTextPersonName4,
+                "[0-9]{10}", R.string.invalid_mobile);
+
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //check validations
+                if (awesomeValidation.validate()  ) {
+                    //on success
+                    Toast.makeText(getApplicationContext(), "Validate Successfully", Toast.LENGTH_SHORT).show();
+
+
                 String vname = name.getText().toString();
                 String vcategory = category.getText().toString();
                 String vnote = note.getText().toString();
@@ -79,11 +110,14 @@ public class AddVendor extends AppCompatActivity {
                 String pamount = p_amount.getText().toString();
                 String pdate = p_date.getText().toString();
 
-                Vendor vendor = new Vendor(vname, vcategory, vnote, vestimated_amount, vnumber, vemail, vaddress, pamount, pdate);
+                Vendor vendor = new Vendor(vname, vcategory, vnote, vestimated_amount, vnumber, vemail, vaddress, pamount, pdate,0);
                 dbHandler.addVendor(vendor);
 
                 startActivity(new Intent(context,DeshaniMain.class));
+                }else{
 
+                    Toast.makeText(getApplicationContext(), "Validation Failed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

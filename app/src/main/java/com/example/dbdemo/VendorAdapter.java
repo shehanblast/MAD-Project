@@ -45,12 +45,13 @@ public class VendorAdapter extends ArrayAdapter<Vendor> {
         p_amount.setText(vendor.getP_amount());
         onGoing.setVisibility(row.INVISIBLE);
 
-        //if(vendor.getFinished() > 0){
-        // onGoing.setVisibility(View.VISIBLE);
-        //  }
+        if(vendor.getFinished() > 0){
+            onGoing.setVisibility(View.VISIBLE);
+        }
         return row;
 
         //return super.getView(position, convertView, parent);
         //}
     }
 }
+

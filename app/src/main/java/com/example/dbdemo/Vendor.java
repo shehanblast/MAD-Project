@@ -11,62 +11,36 @@ public class Vendor {
     private String address;
     private String p_amount;
     private String p_date;
+    private long finished;
+
+    public Vendor(int id, String name, String category, String note, String estimated_amount, String number, String email, String address, String p_amount, String p_date, long finished) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.note = note;
+        this.estimated_amount = estimated_amount;
+        this.number = number;
+        this.email = email;
+        this.address = address;
+        this.p_amount = p_amount;
+        this.p_date = p_date;
+        this.finished = finished;
+    }
+
+    public Vendor(String name, String category, String note, String estimated_amount, String number, String email, String address, String p_amount, String p_date, long finished) {
+        this.name = name;
+        this.category = category;
+        this.note = note;
+        this.estimated_amount = estimated_amount;
+        this.number = number;
+        this.email = email;
+        this.address = address;
+        this.p_amount = p_amount;
+        this.p_date = p_date;
+        this.finished = finished;
+    }
 
     public Vendor() {
-    }
-
-    public Vendor(int id, String name, String category, String note, String estimated_amount, String number, String email, String address, String p_amount, String p_date) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.note = note;
-        this.estimated_amount = estimated_amount;
-        this.number = number;
-        this.email = email;
-        this.address = address;
-        this.p_amount = p_amount;
-        this.p_date = p_date;
-    }
-
-   /* public Vendor(int id, String name, String category, String note, String estimated_amount, String number, String email, String address) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.note = note;
-        this.estimated_amount = estimated_amount;
-        this.number = number;
-        this.email = email;
-        this.address = address;
-    }*/
-
-
-   /* public Vendor(String name, String category, String note, String estimated_amount, String number, String email, String address) {
-   //     this.name = name;
-        this.category = category;
-        this.note = note;
-        this.estimated_amount = estimated_amount;
-        this.number = number;
-        this.email = email;
-        this.address = address;
-    }
-
-
-    public Vendor(String p_name, String p_amount, String p_date) {
-        this.p_name = p_name;
-        this.p_amount = p_amount;
-        this.p_date = p_date;
-    }*/
-
-    public Vendor(String name, String category, String note, String estimated_amount, String number, String email, String address, String p_amount, String p_date) {
-        this.name = name;
-        this.category = category;
-        this.note = note;
-        this.estimated_amount = estimated_amount;
-        this.number = number;
-        this.email = email;
-        this.address = address;
-        this.p_amount = p_amount;
-        this.p_date = p_date;
     }
 
     public int getId() {
@@ -133,7 +107,6 @@ public class Vendor {
         this.address = address;
     }
 
-
     public String getP_amount() {
         return p_amount;
     }
@@ -148,5 +121,13 @@ public class Vendor {
 
     public void setP_date(String p_date) {
         this.p_date = p_date;
+    }
+
+    public long getFinished() {
+        return finished;
+    }
+
+    public void setFinished(long finished) {
+        this.finished = finished;
     }
 }

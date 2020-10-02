@@ -26,4 +26,10 @@
     <string name="Msg10">Payments</string>
     <string name="Msg11">Paid Amount</string>
     <string name="Msg12">Paid Date</string>
+    <string name="invalid_name">Please enter a valid name</string>
+    <string name="invalid_category">Enter a valid category</string>
+    <string name="invalid_note">Enter a valid note</string>
+    <string name="invalid_amount">Please enter a valid amount</string>
+    <string name="invalid_mobile">Please enter a valid mobile number</string>
+    <string name="invalid_email">Enter a valid email address</string>
 </resources>

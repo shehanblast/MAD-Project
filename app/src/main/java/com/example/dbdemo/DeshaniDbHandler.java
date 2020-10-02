@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 public class DeshaniDbHandler extends SQLiteOpenHelper {
-    private static final int VERSION = 3;
+    private static final int VERSION = 4;
     private static final String DB_NAME = "vendor";
     private static final String TABLE_NAME = "vendor";
 
@@ -33,6 +33,7 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
     private static final String ADDRESS = "address";
     private static final String P_AMOUNT = "p_amount";
     private static final String P_DATE = "p_date";
+    private static final String FINISHED="finished";
 
 
     public DeshaniDbHandler(@Nullable Context context) {
@@ -52,7 +53,8 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
                 + EMAIL + " TEXT, "
                 + ADDRESS + " TEXT, "
                 + P_AMOUNT + " TEXT, "
-                + P_DATE + " TEXT "+
+                + P_DATE + " TEXT, "
+                + FINISHED + " TEXT " +
                 ");";
 
 
@@ -87,6 +89,7 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
         contentValues.put(ADDRESS, vendor.getAddress());
         contentValues.put(P_AMOUNT, vendor.getP_amount());
         contentValues.put(P_DATE, vendor.getP_date());
+        contentValues.put(FINISHED,vendor.getFinished());
 
 
         //save to table
@@ -95,7 +98,7 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
 
     }
 
-    //count the guest table records
+    //count the vendors table records
     public int countVendor(){
         SQLiteDatabase db=getReadableDatabase();
         String query="SELECT * FROM "+ TABLE_NAME;
@@ -105,7 +108,7 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
 
     }
 
-    //Get all guests into the list
+    //Get all vendors into the list
     public List<Vendor> getAllVendors(){
 
         List<Vendor> vendors =new ArrayList();
@@ -132,6 +135,7 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
                 vendor.setAddress(cursor.getString(7));
                 vendor.setP_amount(cursor.getString(8));
                 vendor.setP_date(cursor.getString(9));
+                vendor.setFinished(cursor.getLong(10));
 
                 //vendors=[obj,objs,]
                 vendors.add(vendor);
@@ -153,7 +157,7 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
     //get the single guest
     public Vendor getSingleVendor(int id){
         SQLiteDatabase db=getWritableDatabase();
-        Cursor cursor= db.query(TABLE_NAME,new String[]{ID,NAME,CATEGORY,NOTE,ESTIMATEDAMOUNT,NUMBER,EMAIL,ADDRESS,P_AMOUNT,P_DATE},ID+ "= ?",new String[]{String.valueOf(id)},null,null,null);
+        Cursor cursor= db.query(TABLE_NAME,new String[]{ID,NAME,CATEGORY,NOTE,ESTIMATEDAMOUNT,NUMBER,EMAIL,ADDRESS,P_AMOUNT,P_DATE,FINISHED},ID+ "= ?",new String[]{String.valueOf(id)},null,null,null,null);
 
         Vendor vendor;
 
@@ -169,7 +173,8 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
                     cursor.getString(6),
                     cursor.getString(7),
                     cursor.getString(8),
-                    cursor.getString(9)
+                    cursor.getString(9),
+                    cursor.getLong(10)
             );
 
             return vendor;
@@ -192,6 +197,7 @@ public class DeshaniDbHandler extends SQLiteOpenHelper {
         contentValues.put(ADDRESS,vendor.getAddress());
         contentValues.put(P_AMOUNT,vendor.getP_amount());
         contentValues.put(P_DATE,vendor.getP_date());
+        contentValues.put(FINISHED, vendor.getFinished());
 
 
         int status = db.update(TABLE_NAME,contentValues,ID +" =?",new String[]{String.valueOf(vendor.getId())});
