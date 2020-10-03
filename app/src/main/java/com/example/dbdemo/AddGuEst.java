@@ -19,7 +19,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+
 public class AddGuEst extends AppCompatActivity {
+
+    public Toolbar toolbar;
 
     private EditText txtname, txtemail;
     private TextView txtAddguest;
@@ -27,13 +33,23 @@ public class AddGuEst extends AppCompatActivity {
     private DulshaniDbHandler dbHandler;
     private Context context;
 
+    //add the validation part
+    AwesomeValidation awesomeValidation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_gu_est);
 
-        txtname = findViewById(R.id.txtname);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Add Guest");
+        //toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        txtname= findViewById(R.id.txtname);
         txtemail = findViewById(R.id.txtemail);
         //txtAddguest = findViewById(R.id.txtAddguest);
         buttonAdd = findViewById(R.id.buttonAdd);
@@ -44,28 +60,51 @@ public class AddGuEst extends AppCompatActivity {
         //getActionBar().setTitle("Add Guest");
         // getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //initialize validation style
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        //add validation for guest name
+        awesomeValidation.addValidation(this,R.id.txtname,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_name);
+        awesomeValidation.addValidation(this, R.id.txtemail,
+                android.util.Patterns.EMAIL_ADDRESS, R.string.invalid_email);
+
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = txtname.getText().toString();
-                String useremail = txtemail.getText().toString();
-                long started = System.currentTimeMillis();
 
-                GuEst guEst = new GuEst(username, useremail, started, 0);
-                dbHandler.addGuEst(guEst);
 
-                showToast();
-                startActivity(new Intent(context, DulshaniMain.class));
+                //check validations
+                if (awesomeValidation.validate()) {
+                    //on success
+                    Toast.makeText(getApplicationContext(), "Validate Successfully", Toast.LENGTH_SHORT).show();
 
+                    String username = txtname.getText().toString();
+                    String useremail = txtemail.getText().toString();
+                    long started = System.currentTimeMillis();
+
+                    GuEst guEst = new GuEst(username, useremail, started, 0);
+                    dbHandler.addGuEst(guEst);
+
+                    showToast();
+                    startActivity(new Intent(context, DulshaniMain.class));
+
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Validation Failed", Toast.LENGTH_SHORT).show();
+                }
             }
+
         });
 
         //create a tool bar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
 
 
     }
+
 
     public void showToast(){
         LayoutInflater inflater=getLayoutInflater();

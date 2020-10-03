@@ -21,15 +21,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+
 public class EditGuEst extends AppCompatActivity {
 
+    public Toolbar toolbar;
     private EditText edittxtname,edittxtemail;
-    // private TextView txtEditguest;
+    // private TextView txtEditguest;hhh
     private Button buttonEdit;
 
     private DulshaniDbHandler dbHandler;
     private Context context;
     private Long updatedDate;
+
+    AwesomeValidation awesomeValidation;
 
 
 
@@ -37,6 +44,12 @@ public class EditGuEst extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_gu_est);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Edit Guest");
+        //toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+
 
         context=this;
         dbHandler=new DulshaniDbHandler(context);
@@ -50,6 +63,14 @@ public class EditGuEst extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        //initialize validation style
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        //add validation for guest name
+        awesomeValidation.addValidation(this,R.id.txtname,
+                RegexTemplate.NOT_EMPTY,R.string.invalid_name);
+        awesomeValidation.addValidation(this, R.id.txtemail,
+                android.util.Patterns.EMAIL_ADDRESS, R.string.invalid_email);
         //to get the value
         final String id=getIntent().getStringExtra("id");
         GuEst guEst = dbHandler.getSingleGuEst(Integer.parseInt(id));
@@ -62,27 +83,36 @@ public class EditGuEst extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String txtname =edittxtname.getText().toString();
-                String txtemail =edittxtemail.getText().toString();
-
-                updatedDate=System.currentTimeMillis();
-
-                GuEst guEst = new GuEst(Integer.parseInt(id),txtname,txtemail,updatedDate,0);
-
-                int state=dbHandler.updateSingleGuEst(guEst);
-                System.out.println(state);
-                showToast();
-                startActivity(new Intent(context,DulshaniMain.class));
+                //check validations
+                if (awesomeValidation.validate()) {
+                    //on success
+                    Toast.makeText(getApplicationContext(), "Validate Successfully", Toast.LENGTH_SHORT).show();
 
 
+                    String txtname = edittxtname.getText().toString();
+                    String txtemail = edittxtemail.getText().toString();
 
+                    updatedDate = System.currentTimeMillis();
+
+                    GuEst guEst = new GuEst(Integer.parseInt(id), txtname, txtemail, updatedDate, 0);
+
+                    int state = dbHandler.updateSingleGuEst(guEst);
+                    System.out.println(state);
+                    showToast();
+                    startActivity(new Intent(context, DulshaniMain.class));
+
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Validation Failed", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
 
         //create a tool bar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
     }
 
