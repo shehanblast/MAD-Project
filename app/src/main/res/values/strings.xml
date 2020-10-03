@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DB demo</string>
+    <string name="app_name">Event Planner</string>
     <string name="Header">Event Planner</string>
     <string name="Event_name">Birthday Party</string>
     <string name="Time_left_value">28:14:06:05</string>
