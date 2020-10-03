@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     vhgvh
     private int add;
-    private TextView count;sssssssss
+    private TextView count;sssssssssjj
     private DatabaseHelper databaseHelper;
     Context context;
     private List<budget> budgets;
