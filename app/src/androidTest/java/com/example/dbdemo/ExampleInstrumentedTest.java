@@ -19,24 +19,7 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
 
-    private EventPlanner eventPlanner;
 
-    @Before
-    public void setUp(){
-        eventPlanner = new EventPlanner();
-    }
-
-    @Test
-    public void hours(){
-        int result = eventPlanner.convertIntoHours(120);
-        assertEquals(2,result);
-    }
-
-    @Test
-    public void seconds(){
-        int result = eventPlanner.convertIntoHours(120);
-        assertEquals(7200,result);
-    }
 
 
     @Test
