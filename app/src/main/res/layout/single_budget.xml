@@ -45,6 +45,20 @@
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintVertical_bias="0.47" />
 
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="328dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintVertical_bias="0.343" />
+
     <ImageView
         android:id="@+id/onGoing"
         android:layout_width="19dp"

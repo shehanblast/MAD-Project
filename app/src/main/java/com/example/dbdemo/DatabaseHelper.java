@@ -76,6 +76,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor.getCount();
     }
 
+
+
     //Get all guests into the list
     public List<budget> getAllBudgets(){
 

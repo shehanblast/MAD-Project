@@ -26,6 +26,7 @@ public class Welcome extends AppCompatActivity {
         btn11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(Welcome.this,EventPlanner.class);
                 intent.putExtra("n1",ed.getText().toString());
                 startActivity(intent);
