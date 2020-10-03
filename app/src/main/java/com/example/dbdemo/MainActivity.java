@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {hjjhjjj
     private TextView count;sssssssssjj
     private DatabaseHelper databaseHelpgger;
     Context context;
-    private List<budget> budgets;
+    private List<budget> budgets;cnxb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
