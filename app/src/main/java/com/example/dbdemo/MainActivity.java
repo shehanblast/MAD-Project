@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {hjjhjjj
     vhgvh
     private int add;
     private TextView count;sssssssssjj
-    private DatabaseHelper databaseHelper;
+    private DatabaseHelper databaseHelpgger;
     Context context;
     private List<budget> budgets;
 
