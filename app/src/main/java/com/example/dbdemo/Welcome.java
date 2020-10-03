@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Welcome extends AppCompatActivity {
 
@@ -26,6 +27,11 @@ public class Welcome extends AppCompatActivity {
         btn11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(ed.getText().length() == 0){
+                    Toast.makeText(getApplicationContext(), "Event name cannot be Null", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Intent intent = new Intent(Welcome.this,EventPlanner.class);
                 intent.putExtra("n1",ed.getText().toString());
