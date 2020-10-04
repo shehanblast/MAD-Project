@@ -32,6 +32,7 @@ public class AddVendor extends AppCompatActivity {
     private Context context;
 
     AwesomeValidation awesomeValidation;
+   // private DeshaniEmailValidator mEmailValidator;
 
 
     @Override
