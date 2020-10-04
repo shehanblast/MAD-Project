@@ -135,17 +135,17 @@ public class EditVendor extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu2,menu);
         return true;
     }
-/*
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if(id == R.id.check1){
-            Intent intent = new Intent(EditVendor.this, BackToMain.class);
+            Intent intent = new Intent(EditVendor.this, DeshaniMain.class);
             startActivity(intent);
 
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 }

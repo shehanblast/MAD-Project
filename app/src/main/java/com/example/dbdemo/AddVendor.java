@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,7 +33,7 @@ public class AddVendor extends AppCompatActivity {
     private Context context;
 
     AwesomeValidation awesomeValidation;
-   // private DeshaniEmailValidator mEmailValidator;
+   private DeshaniEmailValidator mEmailValidator;
 
 
     @Override
@@ -71,6 +72,10 @@ public class AddVendor extends AppCompatActivity {
 
         dbHandler = new DeshaniDbHandler(context);
 
+        // Setup field validators.
+        mEmailValidator = new DeshaniEmailValidator();
+        email.addTextChangedListener(mEmailValidator);
+
         //initialize validation style
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
@@ -96,33 +101,34 @@ public class AddVendor extends AppCompatActivity {
             public void onClick(View view) {
 
                 //check validations
-                if (awesomeValidation.validate()  ) {
+                if (awesomeValidation.validate() && mEmailValidator.isValid() ) {
                     //on success
                     Toast.makeText(getApplicationContext(), "Validate Successfully", Toast.LENGTH_SHORT).show();
 
+                    String vname = name.getText().toString();
+                    String vcategory = category.getText().toString();
+                    String vnote = note.getText().toString();
+                    String vestimated_amount = estimated_amount.getText().toString();
+                    String vnumber = number.getText().toString();
+                    String vemail = email.getText().toString();
+                    String vaddress = address.getText().toString();
+                    String pamount = p_amount.getText().toString();
+                    String pdate = p_date.getText().toString();
 
-                String vname = name.getText().toString();
-                String vcategory = category.getText().toString();
-                String vnote = note.getText().toString();
-                String vestimated_amount = estimated_amount.getText().toString();
-                String vnumber = number.getText().toString();
-                String vemail = email.getText().toString();
-                String vaddress = address.getText().toString();
-                String pamount = p_amount.getText().toString();
-                String pdate = p_date.getText().toString();
+                    Vendor vendor = new Vendor(vname, vcategory, vnote, vestimated_amount, vnumber, vemail, vaddress, pamount, pdate, 0);
+                    dbHandler.addVendor(vendor);
 
-                Vendor vendor = new Vendor(vname, vcategory, vnote, vestimated_amount, vnumber, vemail, vaddress, pamount, pdate,0);
-                dbHandler.addVendor(vendor);
-
-                startActivity(new Intent(context,DeshaniMain.class));
+                    startActivity(new Intent(context, DeshaniMain.class));
                 }else{
-
+                    email.setError("Invalid email");
+                    Log.w("TAG", "Invalid email");
                     Toast.makeText(getApplicationContext(), "Validation Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
