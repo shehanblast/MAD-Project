@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.content.SharedPreferences;
@@ -36,6 +39,7 @@ public class EventPlanner extends AppCompatActivity {
     private long mEndTime;
     TextView txt;
     String name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,7 @@ public class EventPlanner extends AppCompatActivity {
                 mEditTextInput.setText("");
             }
         });
+
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,9 +131,12 @@ public class EventPlanner extends AppCompatActivity {
         updateWatchInterface();
     }
     private void updateCountDownText() {
-        int hours = (int) (mTimeLeftInMillis / 1000) / 3600;
-        int minutes = (int) ((mTimeLeftInMillis / 1000) % 3600) / 60;
-        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+        //int hours = (int) (mTimeLeftInMillis / 1000) / 3600;
+
+        int hours = convertIntoHours(mTimeLeftInMillis);
+        int minutes = convertIntoMinutes(mTimeLeftInMillis);
+        int seconds = convertIntoSeconds(mTimeLeftInMillis);
+
         String timeLeftFormatted;
         if (hours > 0) {
             timeLeftFormatted = String.format(Locale.getDefault(),
@@ -139,6 +147,19 @@ public class EventPlanner extends AppCompatActivity {
         }
         mTextViewCountDown.setText(timeLeftFormatted);
     }
+
+    public int convertIntoHours(long minutes){
+        return  (int) (minutes / 1000) / 3600;
+    }
+
+    public int convertIntoMinutes(long minutes){
+        return  (int) ((minutes / 1000) % 3600) / 60;
+    }
+
+    public int convertIntoSeconds(long minutes){
+        return  (int) (minutes / 1000) % 60;
+    }
+
     private void updateWatchInterface() {
         if (mTimerRunning) {
             mEditTextInput.setVisibility(View.INVISIBLE);
@@ -241,4 +262,6 @@ public class EventPlanner extends AppCompatActivity {
         });
 
     }
+
+
 }

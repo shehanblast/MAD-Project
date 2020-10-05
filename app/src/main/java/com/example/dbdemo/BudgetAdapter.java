@@ -35,12 +35,14 @@ public class BudgetAdapter extends ArrayAdapter<budget> {
 
         TextView title =row.findViewById(R.id.title);
         TextView description =row.findViewById(R.id.description);
+        TextView amount = row.findViewById(R.id.amount);
         ImageView imageView =row.findViewById(R.id.onGoing);
 
         //guEsts [obj1,obj2,obj3]
         budget budget=budgets.get(position);
         title.setText(budget.getName());
         description.setText(budget.getCategory());
+        amount.setText(budget.getAmount());
         imageView.setVisibility(row.INVISIBLE);
 
         if(budget.getFinished() > 0){

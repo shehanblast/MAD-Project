@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class editBudget extends AppCompatActivity {
 
@@ -42,6 +43,17 @@ public class editBudget extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(title.getText().length() == 0){
+                    Toast.makeText(getApplicationContext(), "Budget name cannot be Empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(amount.getText().length() == 0){
+                    Toast.makeText(getApplicationContext(), "Amount name cannot be Empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String titleText = title.getText().toString();
                 String decText = desc.getText().toString();
                 String amountText = amount.getText().toString();

@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private Button add;
     private TextView count;
+    private TextView amou;
     private DatabaseHelper databaseHelper;
     Context context;
     private List<budget> budgets;
@@ -36,13 +37,20 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.todoList);
         count = findViewById(R.id.todocount);
         budgets = new ArrayList<>();
+        amou = findViewById(R.id.amount);
 
         budgets = databaseHelper.getAllBudgets();
 
         BudgetAdapter budgetAdapter = new BudgetAdapter(context,R.layout.single_budget,budgets);
         listView.setAdapter(budgetAdapter);
+
         int countBudget = databaseHelper.countBudget();
         count.setText("You have "+countBudget+" budgets");
+
+        int aa = databaseHelper.tot();
+        amou.setText("Total Budget is = " + aa );
+
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

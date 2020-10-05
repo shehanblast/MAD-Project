@@ -36,7 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 NAME + " text, " +
                 CATE + " text, " +
-                AMOUNT + " text, " +
+                AMOUNT + " INTEGER, " +
                 STARTED + " text, " +
                 FINISHED + " text) ";
 
@@ -75,6 +75,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query,null);
         return cursor.getCount();
     }
+
+    public int tot(){
+
+        SQLiteDatabase db = getReadableDatabase();
+        int total = 0;
+        Cursor cursor = db.rawQuery("SELECT SUM(" + AMOUNT + ") as Total FROM " + TABLE_NAME, null);
+
+        if (cursor.moveToFirst()) {
+
+            total = cursor.getInt(cursor.getColumnIndex("Total"));// get final total
+
+        }
+        return total;
+
+    }
+
+
 
     //Get all guests into the list
     public List<budget> getAllBudgets(){
